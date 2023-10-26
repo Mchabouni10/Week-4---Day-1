@@ -150,9 +150,9 @@ class Dinner { //class dinner
       this.dessert = dessert;
     }
     listCourse() {
-        console.log(`Appetizer: ${this.appetizer}`);
-        console.log(`Entree: ${this.entree}`);
-        console.log(`Dessert: ${this.dessert}`);
+        // console.log(`Appetizer: ${this.appetizer}`);
+        // console.log(`Entree: ${this.entree}`);
+        // console.log(`Dessert: ${this.dessert}`);
     }
     changeDessert(newDessert) {
         this.dessert = newDessert;
@@ -163,7 +163,21 @@ class Dinner { //class dinner
   }
 
   class Chef { //class chef is facotry for class dinner
-    createDinner(appetizer, entree, dessert) {
-      return new Dinner(appetizer, entree, dessert);
+    constructor(chefName){
+    this.chefName = chefName ;
+    this.dish = [] ;
     }
-  }
+
+  
+   makeAdish (appetizer, entree, dessert) {
+    let newDinner = new Dinner(appetizer, entree, dessert);
+  this.dish.push(newDinner)
+   };
+}
+    
+
+  let newChef= new Chef('Gusto');
+  newChef.makeAdish('Salad','Steak','ChocalateCake')
+  newChef.makeAdish('Soup','cheicken','icecream')
+  newChef.makeAdish('Stemmed vegetables','Steak','Flan')
+  console.log(newChef)
